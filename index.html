@@ -3,109 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auron | Clínica Estética VIP Bogotá</title>
+    <title>Auron | Clínica Estética VIP</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        /* Reset y Base */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Poppins', sans-serif; color: #333; overflow-x: hidden; }
+        /* =========================================
+           1. VARIABLES CSS (Arquitectura Escalable)
+           ========================================= */
+        :root {
+            --primary-teal: #709b9f; /* Color del bloque inferior de tu referencia */
+            --accent-red: #a84646; /* Color del botón de la referencia */
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --bg-white: #fdfdfd;
+            --font-title: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
+        }
 
-        /* Navegación Superior */
+        /* =========================================
+           2. RESET Y BASE
+           ========================================= */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); color: var(--text-dark); background-color: var(--bg-white); overflow-x: hidden; }
+
+        /* =========================================
+           3. NAVEGACIÓN
+           ========================================= */
         nav {
             position: absolute;
             top: 0; width: 100%;
-            padding: 30px 50px;
+            padding: 25px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             z-index: 10;
         }
         .logo {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            font-weight: 600;
-            color: #fff;
-            letter-spacing: 2px;
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            color: var(--text-light);
+            letter-spacing: 1px;
         }
-        .nav-links { list-style: none; display: flex; gap: 30px; }
+        .nav-links { list-style: none; display: flex; gap: 25px; }
         .nav-links li a {
-            color: #fff;
+            color: var(--text-light);
             text-decoration: none;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: color 0.3s ease;
+            transition: opacity 0.3s ease;
         }
-        .nav-links li a:hover { color: #c7a36b; }
+        .nav-links li a:hover { opacity: 0.7; }
 
-        /* Sección Hero (Imagen de fondo) */
-        .hero {
+        /* =========================================
+           4. SECCIÓN 1: HERO IMAGE (Top)
+           ========================================= */
+        .hero-section {
             position: relative;
-            height: 100vh;
+            height: 75vh; /* Ocupa 3/4 de la pantalla como en la referencia */
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: url('https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?q=80&w=2070&auto=format&fit=crop') center/cover;
         }
-        
-        /* Capa oscura para que el texto resalte */
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0, 0, 0, 0.4); 
-            z-index: 1; /* Nivel 1 */
-        }
-
-        /* Contenido Central */
         .hero-content {
-            position: relative;
-            z-index: 2; /* Nivel 2 */
-            max-width: 800px;
-            padding: 0 20px;
+            z-index: 2;
+            max-width: 600px;
+            padding: 20px;
         }
         .hero-content h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
-            color: #fff;
+            color: var(--accent-red);
+            font-size: 2.5rem;
+            font-family: var(--font-title);
+            margin-bottom: 15px;
+            font-weight: 400;
+        }
+        .hero-content p {
+            color: var(--text-light);
+            font-size: 1rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        .btn-primary {
+            background-color: var(--accent-red);
+            color: var(--text-light);
+            padding: 12px 30px;
+            border: none;
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .btn-primary:hover { background-color: #8a3a3a; }
+
+        /* =========================================
+           5. SECCIÓN 2: INFO BLANCA (Middle)
+           ========================================= */
+        .info-section {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: var(--bg-white);
+        }
+        .info-section h2 {
+            font-family: var(--font-title);
+            font-size: 2rem;
+            color: var(--text-dark);
             margin-bottom: 20px;
             font-weight: 400;
         }
-        .hero-content h1 span { color: #c7a36b; font-style: italic; }
-        .hero-content p {
-            font-size: 1.2rem;
-            color: #f8f8f8;
-            margin-bottom: 40px;
-            line-height: 1.6;
+        .info-section p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+            font-size: 0.95rem;
+            line-height: 1.8;
             font-weight: 300;
         }
 
-        /* LA SOLUCIÓN: Forzar el botón de Vapi al frente absoluto */
+        /* =========================================
+           6. SECCIÓN 3: WORKS/TEAL (Bottom)
+           ========================================= */
+        .works-section {
+            padding: 80px 20px;
+            text-align: center;
+            background-color: var(--primary-teal);
+            color: var(--text-light);
+        }
+        .works-section h2 {
+            font-family: var(--font-title);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            font-weight: 400;
+        }
+        .works-section p {
+            max-width: 600px;
+            margin: 0 auto;
+            font-size: 0.95rem;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        /* =========================================
+           7. INTEGRACIÓN AGENTE VAPI
+           ========================================= */
         vapi-chat-widget, #vapi-chat-widget {
-            z-index: 99999 !important; /* Nivel Máximo */
+            z-index: 99999 !important;
             position: fixed !important;
+        }
+
+        /* Responsividad Móvil */
+        @media (max-width: 768px) {
+            .nav-links { display: none; } /* Ocultar menú en móvil para mantenerlo limpio */
+            .hero-section { height: 60vh; }
+            .hero-content h1 { font-size: 2rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">AURON</div>
+        <div class="logo">Auron Spa</div>
         <ul class="nav-links">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Tratamientos</a></li>
-            <li><a href="#">Instalaciones</a></li>
-            <li><a href="#">Contacto</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Works</a></li>
+            <li><a href="#">Services</a></li>
+            <li><a href="#">Contact Us</a></li>
         </ul>
     </nav>
 
-    <header class="hero">
+    <header class="hero-section">
         <div class="hero-content">
-            <h1>Descubre tu <span>mejor versión</span></h1>
-            <p>Bienvenido a la experiencia VIP en estética avanzada. Deja que Lu, nuestra agente virtual, gestione tu cita y responda tus dudas ahora mismo.</p>
+            <h1>Best VIP Experience</h1>
+            <p>Descubre la estética avanzada con tecnología de inteligencia artificial. Habla con nuestra asistente para gestionar tu cita de inmediato.</p>
+            <button class="btn-primary" onclick="alert('Haz clic en el botón de la esquina para hablar con Lu')">Order Now</button>
         </div>
     </header>
+
+    <section class="info-section">
+        <h2>Atención de Primer Nivel</h2>
+        <p>Bienvenido a Auron. Olvídate de esperar horas en el teléfono. Nuestro sistema de voz inteligente está diseñado para entenderte, agendar tus procedimientos y resolver tus dudas al instante, las 24 horas del día.</p>
+    </section>
+
+    <section class="works-section">
+        <h2>Works & Services</h2>
+        <p>Integraciones robustas para clínicas que valoran el tiempo de sus clientes. Implementamos agentes de IA que funcionan con arquitecturas sólidas, no con juguetes.</p>
+    </section>
 
     <script>
       var vapiInstance = null;
@@ -125,12 +211,13 @@
               config: {
                   position: "bottom-right",
                   button: {
-                      color: "#c7a36b" // Color dorado VIP
+                      color: "#709b9f" /* Cambiado al color Teal de la marca para que encaje perfecto */
                   }
               }
           });
         };
       })(document, "script");
     </script>
+
 </body>
 </html>
