@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultoría IA | Lu</title>
+    <style>
+        body { font-family: 'Inter', sans-serif; background: #0f172a; color: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .card { background: #1e293b; padding: 40px; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); text-align: center; max-width: 400px; border: 1px solid #334155; }
+        h1 { font-size: 2rem; margin-bottom: 1rem; color: #38bdf8; }
+        p { color: #94a3b8; line-height: 1.6; }
+        .status { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 20px; font-size: 0.9rem; color: #22c55e; }
+        .dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 10px #22c55e; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Asistente de Voz Lu</h1>
+        <p>Bienvenido a LUIIA. Haz clic en el botón flotante para hablar con nuestro agente experto en automatizaciones.</p>
+        <div class="status"><div class="dot"></div> Agente en línea</div>
+    </div>
+
+    <script>
+      var vapiInstance = null;
+      const assistant = "TU_ASSISTANT_ID_AQUI"; 
+      const apiKey = "TU_PUBLIC_KEY_AQUI"; 
+
+      (function (d, t) {
+        var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        g.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
+        g.defer = true; g.async = true;
+        s.parentNode.insertBefore(g, s);
+        g.onload = function () {
+          vapiInstance = window.vapiSDK.run({ apiKey: apiKey, assistant: assistant });
+        };
+      })(document, "script");
+    </script>
+</body>
+</html>
