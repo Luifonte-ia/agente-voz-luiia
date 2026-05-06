@@ -3,29 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auron Estética Avanzada | Experiencia VIP en Bogotá</title>
+    <title>Auron | Clínica Estética VIP</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         /* =========================================
            1. VARIABLES CSS (Arquitectura Escalable)
            ========================================= */
         :root {
-            --primary-teal: #709b9f; /* Color del bloque inferior de referencia */
-            --accent-gold: #c7a36b; /* Color acento dorado original */
-            --accent-blue: #306f75; /* Nuevo acento azulado para el botón de llamada */
+            --primary-teal: #709b9f; 
+            --accent-gold: #c7a36b; 
             --text-dark: #333333;
             --text-light: #ffffff;
             --bg-white: #fdfdfd;
             --font-title: 'Playfair Display', serif;
             --font-body: 'Poppins', sans-serif;
-            --transition-main: all 0.3s ease;
         }
 
         /* =========================================
            2. RESET Y BASE
            ========================================= */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: var(--font-body); color: var(--text-dark); background-color: var(--bg-white); overflow-x: hidden; scroll-behavior: smooth; }
+        body { font-family: var(--font-body); color: var(--text-dark); background-color: var(--bg-white); overflow-x: hidden; }
 
         /* =========================================
            3. NAVEGACIÓN
@@ -33,7 +31,7 @@
         nav {
             position: absolute;
             top: 0; width: 100%;
-            padding: 25px 5%;
+            padding: 30px 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -41,96 +39,80 @@
         }
         .logo {
             font-family: var(--font-title);
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--text-light);
-            letter-spacing: 1px;
+            letter-spacing: 2px;
             font-weight: 600;
         }
-        .nav-links { list-style: none; display: flex; gap: 25px; }
+        .nav-links { list-style: none; display: flex; gap: 30px; }
         .nav-links li a {
             color: var(--text-light);
             text-decoration: none;
             font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 1.5px;
-            transition: var(--transition-main);
+            transition: color 0.3s ease;
         }
         .nav-links li a:hover { color: var(--accent-gold); }
 
         /* =========================================
-           4. SECCIÓN 1: HERO IMAGE (Top) - Nuevo Diseño y Copy
+           4. SECCIÓN 1: HERO IMAGE (Top)
            ========================================= */
         .hero-section {
             position: relative;
-            height: 100vh; /* Ocupa 100% para mayor impacto */
+            height: 100vh; /* Ocupa toda la pantalla para impacto VIP */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* Imagen de fondo de estética top sophistication */
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1596704017254-9b121068fb31?q=80&w=1974&auto=format&fit=crop') center/cover;
+            /* Imagen de piel perfecta / Estética Top */
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=2069&auto=format&fit=crop') center/cover no-repeat;
         }
         .hero-content {
             z-index: 2;
             max-width: 800px;
-            padding: 20px;
-            color: var(--text-light);
+            padding: 0 20px;
         }
         .hero-content h1 {
-            font-size: 3rem;
+            color: var(--text-light);
+            font-size: 3.5rem;
             font-family: var(--font-title);
             margin-bottom: 20px;
             font-weight: 400;
             letter-spacing: 1px;
-            color: var(--text-light);
         }
         .hero-content p {
+            color: rgba(255, 255, 255, 0.95);
             font-size: 1.1rem;
             font-weight: 300;
             margin-bottom: 40px;
             line-height: 1.8;
-            color: rgba(255, 255, 255, 0.9);
         }
-
-        /* =========================================
-           5. NUEVO BOTÓN DE LLAMADA CENTRAL (Exclusivo para Luiia)
-           ========================================= */
-        .call-button-container {
-            margin-top: 30px;
-            transition: var(--transition-main);
-        }
-        
-        .btn-call {
-            background-color: var(--accent-blue);
+        .btn-primary {
+            background-color: var(--primary-teal);
             color: var(--text-light);
-            padding: 18px 45px;
+            padding: 16px 40px;
             border: none;
+            border-radius: 30px;
             font-family: var(--font-body);
             text-transform: uppercase;
-            font-size: 1rem;
+            font-size: 0.95rem;
             letter-spacing: 2px;
             cursor: pointer;
-            transition: var(--transition-main);
-            border-radius: 50px; /* Forma de píldora profesional */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             display: inline-flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
-        
-        .btn-call:hover {
-            background-color: #245e63;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
-        }
-        
-        .btn-call-icon {
-            font-size: 1.2rem;
+        .btn-primary:hover { 
+            background-color: #5a8084; 
+            transform: translateY(-2px);
         }
 
         /* =========================================
-           6. SECCIÓN 2: INFO CLÍNICA BLANCA (Middle)
+           5. SECCIÓN 2: INFO BLANCA (Middle)
            ========================================= */
         .info-section {
             padding: 100px 20px;
@@ -143,19 +125,18 @@
             color: var(--text-dark);
             margin-bottom: 25px;
             font-weight: 400;
-            letter-spacing: 1px;
         }
         .info-section p {
             max-width: 750px;
             margin: 0 auto;
-            color: #666;
+            color: #555;
             font-size: 1rem;
             line-height: 1.9;
             font-weight: 300;
         }
 
         /* =========================================
-           7. SECCIÓN 3: RESULTADOS & SERVICIOS TEAL (Bottom)
+           6. SECCIÓN 3: WORKS/TEAL (Bottom)
            ========================================= */
         .works-section {
             padding: 100px 20px;
@@ -168,7 +149,6 @@
             font-size: 2.2rem;
             margin-bottom: 25px;
             font-weight: 400;
-            letter-spacing: 1px;
         }
         .works-section p {
             max-width: 700px;
@@ -179,20 +159,18 @@
         }
 
         /* =========================================
-           8. INTEGRACIÓN AGENTE VAPI - AJUSTES DE ARQUITECTURA
+           7. INTEGRACIÓN AGENTE VAPI (Funcional)
            ========================================= */
-        /* Ocultar el widget flotante por defecto de Vapi */
         vapi-chat-widget, #vapi-chat-widget {
-            display: none !important;
-            visibility: hidden !important;
+            z-index: 99999 !important;
+            position: fixed !important;
         }
 
         /* Responsividad Móvil */
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .hero-content h1 { font-size: 2.2rem; }
+            .hero-content h1 { font-size: 2.5rem; }
             .hero-content p { font-size: 0.95rem; }
-            .btn-call { padding: 15px 35px; font-size: 0.9rem; }
         }
     </style>
 </head>
@@ -211,63 +189,47 @@
     <header class="hero-section">
         <div class="hero-content">
             <h1>Descubre tu Mejor Versión</h1>
-            <p>Accede en exclusiva a la élite de la estética avanzada. No esperes más; Lu, nuestra asistente virtual de inteligencia superior, está lista para diseñar tu agenda y resolver todas tus inquietudes al instante.</p>
-            
-            <div class="call-button-container">
-                <button class="btn-call" onclick="startVapiCall()">
-                    <span class="btn-call-icon">📞</span>
-                    Hablar con Lu
-                </button>
-            </div>
+            <p>Forma parte de la experiencia VIP en estética avanzada. No esperes más; deja que Lu, nuestra asistente virtual de inteligencia superior, gestione tu cita y responda a tus dudas ahora mismo.</p>
+            <button class="btn-primary" onclick="alert('Para hablar con Lu, por favor haz clic en el ícono de llamada flotante en la esquina inferior derecha de tu pantalla.')">
+                📞 HABLAR CON LU
+            </button>
         </div>
     </header>
 
     <section class="info-section">
-        <h2>Clínica de Estética Avanzada VIP</h2>
-        <p>Bienvenido a Auron. Olvídate de la burocracia médica y las esperas telefónicas. Hemos diseñado una arquitectura de atención exclusiva donde la eficiencia de la inteligencia artificial se une a la precisión médica. Nuestro sistema de voz inteligente te entiende, gestiona tus procedimientos VIP y resuelve tus dudas al instante, las 24 horas del día.</p>
+        <h2>Atención de Primer Nivel</h2>
+        <p>Bienvenido a Auron. Olvídate de la burocracia médica y las esperas telefónicas. Nuestro sistema de voz inteligente está diseñado para entenderte, agendar tus procedimientos VIP y resolver tus dudas al instante, las 24 horas del día.</p>
     </section>
 
     <section class="works-section">
-        <h2>Nuestros Tratamientos y Resultados</h2>
-        <p>Implementamos soluciones robustas para clínicas que valoran el tiempo y la privacidad de sus clientes VIP. No utilizamos juguetes; integramos agentes de IA de alto nivel que funcionan bajo arquitecturas sólidas para garantizar la seguridad y la confidencialidad en cada interacción.</p>
+        <h2>Tratamientos y Resultados</h2>
+        <p>Integraciones robustas para clínicas que valoran el tiempo de sus clientes. Implementamos agentes de IA que funcionan con arquitecturas sólidas, garantizando privacidad y eficiencia en cada interacción.</p>
     </section>
 
     <script>
-      const assistantId = "c3f7a846-f79a-49d0-ace3-a99e6d1ebe98"; 
-      const apiKeyPublic = "da74cce1-415a-48cf-bf99-f20520b48d22"; 
+      var vapiInstance = null;
+      const assistant = "c3f7a846-f79a-49d0-ace3-a99e6d1ebe98"; 
+      const apiKey = "da74cce1-415a-48cf-bf99-f20520b48d22"; 
 
-      // Función para cargar el SDK de Vapi
       (function (d, t) {
         var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
         g.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
         g.defer = true; g.async = true;
         s.parentNode.insertBefore(g, s);
-      })(document, "script");
-
-      // Función que se ejecuta al hacer clic en el botón central de la página
-      function startVapiCall() {
-          if (window.vapiSDK && window.vapiSDK.isStarted()) {
-              // Si ya está activo, no hacemos nada (o podríamos detenerlo)
-              console.log("La llamada ya está en curso.");
-              return;
-          }
-
-          if (window.vapiSDK) {
-              console.log("Iniciando llamada con Lu...");
-              window.vapiSDK.run({ 
-                  apiKey: apiKeyPublic, 
-                  assistant: assistantId,
-                  config: {
-                      // Configuración de interfaz oculta para que el botón central controle todo
-                      showButton: false, 
-                      position: "bottom-right" // Se mantiene para posicionamiento interno
+        
+        g.onload = function () {
+          window.vapiSDK.run({ 
+              apiKey: apiKey, 
+              assistant: assistant,
+              config: {
+                  position: "bottom-right",
+                  button: {
+                      color: "#709b9f" /* Color Teal a juego con la marca */
                   }
-              });
-          } else {
-              console.error("El SDK de Vapi no se ha cargado correctamente.");
-              alert("Lo sentimos, Lu no está disponible en este momento. Inténtalo de nuevo.");
-          }
-      }
+              }
+          });
+        };
+      })(document, "script");
     </script>
 
 </body>
