@@ -81,13 +81,6 @@
             line-height: 1.6;
             font-weight: 300;
         }
-
-        /* Estilos del widget de Vapi */
-        .vapi-btn-custom {
-            --vapi-btn-background-color: #c7a36b;
-            --vapi-btn-text-color: #ffffff;
-            --vapi-btn-hover-color: #b58d5a;
-        }
     </style>
 </head>
 <body>
@@ -102,7 +95,7 @@
         </ul>
     </nav>
 
-    <header class="hero vapi-btn-custom">
+    <header class="hero">
         <div class="hero-content">
             <h1>Descubre tu <span>mejor versión</span></h1>
             <p>Bienvenido a la experiencia VIP en estética avanzada. Deja que Lu, nuestra agente virtual, gestione tu cita y responda tus dudas ahora mismo.</p>
@@ -119,8 +112,17 @@
         g.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
         g.defer = true; g.async = true;
         s.parentNode.insertBefore(g, s);
+        
         g.onload = function () {
-          vapiInstance = window.vapiSDK.run({ apiKey: apiKey, assistant: assistant });
+          window.vapiSDK.run({ 
+              apiKey: apiKey, 
+              assistant: assistant,
+              config: {
+                  button: {
+                      color: "#c7a36b" // Color dorado VIP para el botón
+                  }
+              }
+          });
         };
       })(document, "script");
     </script>
