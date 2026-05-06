@@ -3,27 +3,110 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultoría IA | Lu</title>
+    <title>Auron | Clínica Estética VIP Bogotá</title>
     <style>
-        body { font-family: 'Inter', sans-serif; background: #0f172a; color: white; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
-        .card { background: #1e293b; padding: 40px; border-radius: 20px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); text-align: center; max-width: 400px; border: 1px solid #334155; }
-        h1 { font-size: 2rem; margin-bottom: 1rem; color: #38bdf8; }
-        p { color: #94a3b8; line-height: 1.6; }
-        .status { display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 20px; font-size: 0.9rem; color: #22c55e; }
-        .dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 10px #22c55e; }
+        /* Estilos Globales - Limpieza y Sofisticación */
+        body {
+            font-family: 'Poppins', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff; /* Base blanca */
+            color: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Contenedor Principal (UI Sofisticada) */
+        .premium-card {
+            background: #ffffff;
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            border: 1px solid rgba(199, 163, 107, 0.2); /* Borde dorado muy sutil */
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efecto Glow sutil en el fondo */
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(199, 163, 107, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            z-index: 1;
+        }
+
+        /* Título - Tono VIP */
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 span {
+            color: #c7a36b; /* Dorado VIP */
+        }
+
+        /* Párrafo y Estado */
+        p {
+            color: #555555;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 30px;
+        }
+
+        .status-vip {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: #c7a36b; /* Dorado */
+            position: relative;
+            z-index: 2;
+            font-weight: 500;
+        }
+
+        .status-vip .dot-gold {
+            width: 10px;
+            height: 10px;
+            background: #c7a36b;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(199, 163, 107, 0.5);
+        }
+
+        /* Estilos específicos para el widget de Vapi */
+        .vapi-btn-custom {
+            --vapi-btn-background-color: #c7a36b; /* Color principal del botón (Dorado) */
+            --vapi-btn-text-color: #ffffff; /* Color del texto/icono */
+            --vapi-btn-hover-color: #b58d5a; /* Color de hover */
+        }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>Asistente de Voz Lu</h1>
-        <p>Bienvenido a LUIIA. Haz clic en el botón flotante para hablar con nuestro agente experto en automatizaciones.</p>
-        <div class="status"><div class="dot"></div> Agente en línea</div>
+    <div class="premium-card vapi-btn-custom">
+        <h1><span>Auron</span> Clínica Estética</h1>
+        <p>Bienvenido a la experiencia VIP de la belleza en Bogotá. Haz clic en el botón flotante para hablar con tu agente virtual experto.</p>
+        <div class="status-vip">
+            <div class="dot-gold"></div> Agente virtual Lu en línea
+        </div>
     </div>
 
     <script>
       var vapiInstance = null;
-      const assistant = "TU_ASSISTANT_ID_AQUI"; 
-      const apiKey = "TU_PUBLIC_KEY_AQUI"; 
+      const assistant = "c3f7a846-f79a-49d0-ace3-a99e6d1ebe98"; 
+      const apiKey = "da74cce1-415a-48cf-bf99-f20520b48d22"; 
 
       (function (d, t) {
         var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
