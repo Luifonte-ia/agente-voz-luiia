@@ -12,7 +12,7 @@
         :root {
             --primary-teal: #709b9f; 
             --accent-gold: #d4af37; 
-            --vapi-green: #3bdfa6; /* Color del botón de llamada nativo */
+            --vapi-green: #3bdfa6;
             --text-dark: #333333;
             --text-light: #ffffff;
             --bg-white: #fdfdfd;
@@ -85,7 +85,6 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* Fondo actualizado a una clínica estética premium */
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2068&auto=format&fit=crop') center/cover no-repeat;
         }
         .hero-content {
@@ -106,7 +105,7 @@
             color: rgba(255, 255, 255, 0.9);
             font-size: 1.05rem;
             font-weight: 300;
-            margin-bottom: 35px; /* Reducido para acercar los botones */
+            margin-bottom: 35px;
             line-height: 1.8;
             max-width: 700px;
             margin-left: auto;
@@ -114,16 +113,15 @@
         }
 
         /* =========================================
-           5. BOTONES Y CTA CONTAINER
+           5. BOTÓN PRINCIPAL (Glassmorphism)
            ========================================= */
         .cta-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px; /* Espacio entre el botón VIP y el botón verde */
+            gap: 20px; 
         }
 
-        /* Botón 1: Glassmorphism */
         .btn-glass {
             background: rgba(255, 255, 255, 0.05); 
             backdrop-filter: blur(8px); 
@@ -164,32 +162,6 @@
             background: rgba(212, 175, 55, 0.1);
         }
 
-        /* Botón 2: Teléfono Verde (Ubicación central inferior) */
-        .btn-green-phone {
-            background-color: var(--vapi-green);
-            border: none;
-            width: 55px;
-            height: 55px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(59, 223, 166, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .btn-green-phone:hover {
-            transform: translateY(-2px) scale(1.05);
-            box-shadow: 0 6px 20px rgba(59, 223, 166, 0.5);
-        }
-
-        .phone-icon {
-            width: 22px;
-            height: 22px;
-            stroke: #111111; /* Ícono oscuro para contrastar con el verde */
-        }
-
         /* =========================================
            6. SECCIONES INFERIORES
            ========================================= */
@@ -202,13 +174,15 @@
         .works-section p { max-width: 700px; margin: 0 auto; font-size: 1rem; line-height: 1.9; font-weight: 300; }
 
         /* =========================================
-           7. INTEGRACIÓN AGENTE VAPI (Oculto visualmente)
+           7. INTEGRACIÓN AGENTE VAPI NATIVO
            ========================================= */
         vapi-chat-widget, #vapi-chat-widget {
+            z-index: 99999 !important;
             position: fixed !important;
-            opacity: 0 !important; /* Lo hacemos invisible para que no compita con nuestro diseño */
-            pointer-events: none !important; /* Evita clics accidentales en la esquina */
-            z-index: -1 !important;
+            /* Esta regla centra el widget nativo perfectamente en la parte inferior */
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            bottom: 30px !important;
         }
 
         /* Responsividad Móvil */
@@ -247,12 +221,6 @@
                     </svg>
                     <span>HABLAR CON LUI</span>
                 </button>
-                
-                <button class="btn-green-phone" id="customVapiTrigger2">
-                    <svg class="phone-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M22 16.92V20C22 20.5523 21.5523 21 21 21C10.5066 21 2 12.4934 2 2C2 1.44772 2.44772 1 3 1H6.08C6.58558 1 7.01463 1.37895 7.07297 1.88145L7.54583 5.95551C7.61118 6.51868 7.37889 7.07348 6.93721 7.38262L4.69993 8.94868C6.06822 11.6663 8.33374 13.9318 11.0513 15.3L12.6174 13.0628C12.9265 12.6211 13.4813 12.3888 14.0445 12.4542L18.1186 12.927C18.621 12.9854 19 13.4144 19 13.92V16.92Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>
-                </button>
             </div>
         </div>
     </header>
@@ -282,13 +250,19 @@
           window.vapiSDK.run({ 
               apiKey: apiKey, 
               assistant: assistant,
-              config: {} // No necesitamos estilos aquí porque el widget original está oculto
+              config: {
+                  position: "bottom", // Le indicamos a Vapi que se ubique abajo
+                  button: {
+                      color: "#3bdfa6" // Mantenemos el color verde nativo
+                  }
+              }
           });
         };
       })(document, "script");
 
-      // Función unificada para que ambos botones activen a Vapi
-      function activateVapiCall(btnElement) {
+      // El botón elegante "HABLAR CON LUI" sigue enlazado al agente nativo para doble conversión
+      document.getElementById('customVapiTrigger1').addEventListener('click', function() {
+          const btnElement = this;
           const textSpan = btnElement.querySelector('span');
           
           btnElement.classList.add('active-call');
@@ -300,7 +274,7 @@
                   if(vapiWidget && vapiWidget.shadowRoot) {
                       const vapiBtn = vapiWidget.shadowRoot.querySelector('button');
                       if(vapiBtn) {
-                          vapiBtn.click();
+                          vapiBtn.click(); // Activa el widget nativo
                       }
                   } else {
                       alert("Lui se está preparando, por favor intenta en un segundo.");
@@ -315,14 +289,6 @@
               }, 3000);
 
           }, 300);
-      }
-
-      // Asignar el evento a ambos botones de la UI
-      document.getElementById('customVapiTrigger1').addEventListener('click', function() {
-          activateVapiCall(this);
-      });
-      document.getElementById('customVapiTrigger2').addEventListener('click', function() {
-          activateVapiCall(this);
       });
     </script>
 
