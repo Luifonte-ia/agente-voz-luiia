@@ -3,121 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auron | Clínica Estética VIP Bogotá</title>
+    <title>Auron | Clínica Estética VIP</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        /* Estilos Globales - Limpieza y Sofisticación */
-        body {
-            font-family: 'Poppins', 'Helvetica Neue', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #ffffff; /* Base blanca */
-            color: #1a1a1a;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+        /* =========================================
+           1. VARIABLES CSS (Arquitectura Escalable)
+           ========================================= */
+        :root {
+            --primary-teal: #709b9f; 
+            --accent-gold: #c7a36b; 
+            --text-dark: #333333;
+            --text-light: #ffffff;
+            --bg-white: #fdfdfd;
+            --font-title: 'Playfair Display', serif;
+            --font-body: 'Poppins', sans-serif;
         }
 
-        /* Contenedor Principal (UI Sofisticada) */
-        .premium-card {
-            background: #ffffff;
-            padding: 50px;
-            border-radius: 30px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            max-width: 500px;
-            border: 1px solid rgba(199, 163, 107, 0.2); /* Borde dorado muy sutil */
-            position: relative;
-            overflow: hidden;
-        }
+        /* =========================================
+           2. RESET Y BASE
+           ========================================= */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: var(--font-body); color: var(--text-dark); background-color: var(--bg-white); overflow-x: hidden; }
 
-        /* Efecto Glow sutil en el fondo */
-        .premium-card::before {
-            content: '';
+        /* =========================================
+           3. NAVEGACIÓN
+           ========================================= */
+        nav {
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(199, 163, 107, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
-            z-index: 1;
+            top: 0; width: 100%;
+            padding: 30px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
         }
+        .logo {
+            font-family: var(--font-title);
+            font-size: 2rem;
+            color: var(--text-light);
+            letter-spacing: 2px;
+            font-weight: 600;
+        }
+        .nav-links { list-style: none; display: flex; gap: 30px; }
+        .nav-links li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            transition: color 0.3s ease;
+        }
+        .nav-links li a:hover { color: var(--accent-gold); }
 
-        /* Título - Tono VIP */
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 0.5rem;
-            color: #1a1a1a;
-            font-weight: 700;
+        /* =========================================
+           4. SECCIÓN 1: HERO IMAGE (Top)
+           ========================================= */
+        .hero-section {
             position: relative;
+            height: 100vh; /* Ocupa toda la pantalla para impacto VIP */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            /* Imagen de piel perfecta / Estética Top */
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=2069&auto=format&fit=crop') center/cover no-repeat;
+        }
+        .hero-content {
             z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
         }
-
-        h1 span {
-            color: #c7a36b; /* Dorado VIP */
+        .hero-content h1 {
+            color: var(--text-light);
+            font-size: 3.5rem;
+            font-family: var(--font-title);
+            margin-bottom: 20px;
+            font-weight: 400;
+            letter-spacing: 1px;
         }
-
-        /* Párrafo y Estado */
-        p {
-            color: #555555;
-            line-height: 1.8;
+        .hero-content p {
+            color: rgba(255, 255, 255, 0.95);
             font-size: 1.1rem;
-            position: relative;
-            z-index: 2;
-            margin-bottom: 30px;
+            font-weight: 300;
+            margin-bottom: 40px;
+            line-height: 1.8;
         }
-
-        .status-vip {
+        .btn-primary {
+            background-color: var(--primary-teal);
+            color: var(--text-light);
+            padding: 16px 40px;
+            border: none;
+            border-radius: 30px;
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            font-size: 0.95rem;
-            color: #c7a36b; /* Dorado */
-            position: relative;
-            z-index: 2;
-            font-weight: 500;
+        }
+        .btn-primary:hover { 
+            background-color: #5a8084; 
+            transform: translateY(-2px);
         }
 
-        .status-vip .dot-gold {
-            width: 10px;
-            height: 10px;
-            background: #c7a36b;
-            border-radius: 50%;
-            box-shadow: 0 0 10px rgba(199, 163, 107, 0.5);
+        /* =========================================
+           5. SECCIÓN 2: INFO BLANCA (Middle)
+           ========================================= */
+        .info-section {
+            padding: 100px 20px;
+            text-align: center;
+            background-color: var(--bg-white);
+        }
+        .info-section h2 {
+            font-family: var(--font-title);
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+        .info-section p {
+            max-width: 750px;
+            margin: 0 auto;
+            color: #555;
+            font-size: 1rem;
+            line-height: 1.9;
+            font-weight: 300;
         }
 
-        /* Estilos específicos para el widget de Vapi */
-        .vapi-btn-custom {
-            --vapi-btn-background-color: #c7a36b; /* Color principal del botón (Dorado) */
-            --vapi-btn-text-color: #ffffff; /* Color del texto/icono */
-            --vapi-btn-hover-color: #b58d5a; /* Color de hover */
+        /* =========================================
+           6. SECCIÓN 3: WORKS/TEAL (Bottom)
+           ========================================= */
+        .works-section {
+            padding: 100px 20px;
+            text-align: center;
+            background-color: var(--primary-teal);
+            color: var(--text-light);
+        }
+        .works-section h2 {
+            font-family: var(--font-title);
+            font-size: 2.2rem;
+            margin-bottom: 25px;
+            font-weight: 400;
+        }
+        .works-section p {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1rem;
+            line-height: 1.9;
+            font-weight: 300;
+        }
+
+        /* =========================================
+           7. INTEGRACIÓN AGENTE VAPI (Funcional)
+           ========================================= */
+        vapi-chat-widget, #vapi-chat-widget {
+            z-index: 99999 !important;
+            position: fixed !important;
+        }
+
+        /* Responsividad Móvil */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content p { font-size: 0.95rem; }
         }
     </style>
 </head>
 <body>
-    <div class="premium-card vapi-btn-custom">
-        <h1><span>Auron</span> Clínica Estética</h1>
-        <p>Bienvenido a la experiencia VIP de la belleza en Bogotá. Haz clic en el botón flotante para hablar con tu agente virtual experto.</p>
-        <div class="status-vip">
-            <div class="dot-gold"></div> Agente virtual Lu en línea
+
+    <nav>
+        <div class="logo">Auron Estética</div>
+        <ul class="nav-links">
+            <li><a href="#">Inicio</a></li>
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Resultados</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero-section">
+        <div class="hero-content">
+            <h1>Descubre tu Mejor Versión</h1>
+            <p>Forma parte de la experiencia VIP en estética avanzada. No esperes más; deja que Lu, nuestra asistente virtual de inteligencia superior, gestione tu cita y responda a tus dudas ahora mismo.</p>
+            <button class="btn-primary" onclick="alert('Para hablar con Lu, por favor haz clic en el ícono de llamada flotante en la esquina inferior derecha de tu pantalla.')">
+                📞 HABLAR CON LU
+            </button>
         </div>
-    </div>
+    </header>
+
+    <section class="info-section">
+        <h2>Atención de Primer Nivel</h2>
+        <p>Bienvenido a Auron. Olvídate de la burocracia médica y las esperas telefónicas. Nuestro sistema de voz inteligente está diseñado para entenderte, agendar tus procedimientos VIP y resolver tus dudas al instante, las 24 horas del día.</p>
+    </section>
+
+    <section class="works-section">
+        <h2>Tratamientos y Resultados</h2>
+        <p>Integraciones robustas para clínicas que valoran el tiempo de sus clientes. Implementamos agentes de IA que funcionan con arquitecturas sólidas, garantizando privacidad y eficiencia en cada interacción.</p>
+    </section>
 
     <script>
       var vapiInstance = null;
-      // INSTRUCCIÓN: Inyecta tus datos reales aquí
-      const assistant = "TU_ASSISTANT_ID_AQUI"; 
-      const apiKey = "TU_PUBLIC_KEY_AQUI"; 
+      const assistant = "c3f7a846-f79a-49d0-ace3-a99e6d1ebe98"; 
+      const apiKey = "da74cce1-415a-48cf-bf99-f20520b48d22"; 
 
       (function (d, t) {
         var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
         g.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
         g.defer = true; g.async = true;
         s.parentNode.insertBefore(g, s);
+        
         g.onload = function () {
-          vapiInstance = window.vapiSDK.run({ apiKey: apiKey, assistant: assistant });
+          window.vapiSDK.run({ 
+              apiKey: apiKey, 
+              assistant: assistant,
+              config: {
+                  position: "bottom-right",
+                  button: {
+                      color: "#709b9f" /* Color Teal a juego con la marca */
+                  }
+              }
+          });
         };
       })(document, "script");
     </script>
+
 </body>
 </html>
