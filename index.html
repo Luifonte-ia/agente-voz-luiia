@@ -11,7 +11,8 @@
            ========================================= */
         :root {
             --primary-teal: #709b9f; 
-            --accent-gold: #d4af37; /* Tono dorado más premium y sutil */
+            --accent-gold: #d4af37; 
+            --vapi-green: #3bdfa6; /* Color del botón de llamada nativo */
             --text-dark: #333333;
             --text-light: #ffffff;
             --bg-white: #fdfdfd;
@@ -38,7 +39,6 @@
             z-index: 10;
         }
         
-        /* Estructura de Logo de Lujo */
         .logo-container {
             display: flex;
             flex-direction: column;
@@ -85,18 +85,18 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* Overlay oscurecido para mayor contraste y legibilidad */
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=2069&auto=format&fit=crop') center/cover no-repeat;
+            /* Fondo actualizado a una clínica estética premium */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1629909613654-28e377c37b09?q=80&w=2068&auto=format&fit=crop') center/cover no-repeat;
         }
         .hero-content {
             z-index: 2;
             max-width: 850px;
             padding: 0 20px;
-            margin-top: 40px; /* Compensa visualmente el espacio del menú */
+            margin-top: 40px; 
         }
         .hero-content h1 {
             color: var(--text-light);
-            font-size: 4rem; /* Ligeramente más grande */
+            font-size: 4rem; 
             font-family: var(--font-title);
             margin-bottom: 20px;
             font-weight: 400;
@@ -106,7 +106,7 @@
             color: rgba(255, 255, 255, 0.9);
             font-size: 1.05rem;
             font-weight: 300;
-            margin-bottom: 45px;
+            margin-bottom: 35px; /* Reducido para acercar los botones */
             line-height: 1.8;
             max-width: 700px;
             margin-left: auto;
@@ -114,16 +114,24 @@
         }
 
         /* =========================================
-           5. BOTÓN VIP: GLASSMORPHISM Y VAPI
+           5. BOTONES Y CTA CONTAINER
            ========================================= */
+        .cta-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px; /* Espacio entre el botón VIP y el botón verde */
+        }
+
+        /* Botón 1: Glassmorphism */
         .btn-glass {
-            background: rgba(255, 255, 255, 0.05); /* Fondo casi transparente */
-            backdrop-filter: blur(8px); /* Efecto cristal */
+            background: rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(8px); 
             -webkit-backdrop-filter: blur(8px);
-            border: 1px solid rgba(212, 175, 55, 0.5); /* Borde dorado translúcido */
+            border: 1px solid rgba(212, 175, 55, 0.5); 
             color: var(--text-light);
             padding: 14px 35px;
-            border-radius: 40px; /* Forma de píldora */
+            border-radius: 40px; 
             font-family: var(--font-body);
             text-transform: uppercase;
             font-size: 0.85rem;
@@ -140,17 +148,11 @@
             background: rgba(255, 255, 255, 0.15); 
             border-color: var(--accent-gold);
             transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.2); /* Resplandor dorado suave */
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.2); 
         }
 
-        /* Ícono de ondas SVG */
-        .soundwave-icon {
-            width: 18px;
-            height: 18px;
-            stroke: var(--accent-gold);
-        }
+        .soundwave-icon { width: 18px; height: 18px; stroke: var(--accent-gold); }
 
-        /* Animación de pulso para indicar IA en vivo */
         @keyframes subtlePulse {
             0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
             70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
@@ -160,6 +162,32 @@
             animation: subtlePulse 2s infinite;
             border-color: var(--accent-gold);
             background: rgba(212, 175, 55, 0.1);
+        }
+
+        /* Botón 2: Teléfono Verde (Ubicación central inferior) */
+        .btn-green-phone {
+            background-color: var(--vapi-green);
+            border: none;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(59, 223, 166, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-green-phone:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(59, 223, 166, 0.5);
+        }
+
+        .phone-icon {
+            width: 22px;
+            height: 22px;
+            stroke: #111111; /* Ícono oscuro para contrastar con el verde */
         }
 
         /* =========================================
@@ -174,13 +202,13 @@
         .works-section p { max-width: 700px; margin: 0 auto; font-size: 1rem; line-height: 1.9; font-weight: 300; }
 
         /* =========================================
-           7. INTEGRACIÓN AGENTE VAPI
+           7. INTEGRACIÓN AGENTE VAPI (Oculto visualmente)
            ========================================= */
         vapi-chat-widget, #vapi-chat-widget {
-            z-index: 99999 !important;
             position: fixed !important;
-            /* Opcional: Ocultar el botón flotante por defecto si solo quieres usar el central */
-            /* display: none !important; */ 
+            opacity: 0 !important; /* Lo hacemos invisible para que no compita con nuestro diseño */
+            pointer-events: none !important; /* Evita clics accidentales en la esquina */
+            z-index: -1 !important;
         }
 
         /* Responsividad Móvil */
@@ -210,14 +238,22 @@
     <header class="hero-section">
         <div class="hero-content">
             <h1>Descubre tu Mejor Versión</h1>
-            <p>Forma parte de la experiencia VIP en estética avanzada. No esperes más; deja que Lu, nuestra asistente virtual de inteligencia superior, gestione tu cita y responda a tus dudas ahora mismo.</p>
+            <p>Forma parte de la experiencia VIP en estética avanzada. No esperes más; deja que Lui, nuestro asistente virtual de inteligencia superior, gestione tu cita y responda a tus dudas ahora mismo.</p>
             
-            <button class="btn-glass" id="customVapiTrigger">
-                <svg class="soundwave-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 4V20M8 8V16M16 8V16M4 11V13M20 11V13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-                <span>HABLAR CON LU</span>
-            </button>
+            <div class="cta-container">
+                <button class="btn-glass" id="customVapiTrigger1">
+                    <svg class="soundwave-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 4V20M8 8V16M16 8V16M4 11V13M20 11V13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>HABLAR CON LUI</span>
+                </button>
+                
+                <button class="btn-green-phone" id="customVapiTrigger2">
+                    <svg class="phone-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 16.92V20C22 20.5523 21.5523 21 21 21C10.5066 21 2 12.4934 2 2C2 1.44772 2.44772 1 3 1H6.08C6.58558 1 7.01463 1.37895 7.07297 1.88145L7.54583 5.95551C7.61118 6.51868 7.37889 7.07348 6.93721 7.38262L4.69993 8.94868C6.06822 11.6663 8.33374 13.9318 11.0513 15.3L12.6174 13.0628C12.9265 12.6211 13.4813 12.3888 14.0445 12.4542L18.1186 12.927C18.621 12.9854 19 13.4144 19 13.92V16.92Z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -246,26 +282,18 @@
           window.vapiSDK.run({ 
               apiKey: apiKey, 
               assistant: assistant,
-              config: {
-                  position: "bottom-right",
-                  button: {
-                      color: "#709b9f"
-                  }
-              }
+              config: {} // No necesitamos estilos aquí porque el widget original está oculto
           });
         };
       })(document, "script");
 
-      // Lógica para que el Botón VIP Central active Vapi
-      document.getElementById('customVapiTrigger').addEventListener('click', function() {
-          const btn = this;
-          const textSpan = btn.querySelector('span');
+      // Función unificada para que ambos botones activen a Vapi
+      function activateVapiCall(btnElement) {
+          const textSpan = btnElement.querySelector('span');
           
-          // Cambiar estado visual temporalmente para feedback UX
-          btn.classList.add('active-call');
-          textSpan.innerText = "CONECTANDO...";
+          btnElement.classList.add('active-call');
+          if (textSpan) textSpan.innerText = "CONECTANDO...";
 
-          // Intentar hacer clic en el widget oculto de Vapi incrustado en el Shadow DOM
           setTimeout(() => {
               try {
                   const vapiWidget = document.querySelector('vapi-chat-widget');
@@ -275,19 +303,26 @@
                           vapiBtn.click();
                       }
                   } else {
-                      alert("El agente de voz se está inicializando, por favor intenta en un segundo.");
+                      alert("Lui se está preparando, por favor intenta en un segundo.");
                   }
               } catch (e) {
                   console.error("Error al conectar con Vapi:", e);
               }
               
-              // Restaurar el botón después de la interacción
               setTimeout(() => {
-                  btn.classList.remove('active-call');
-                  textSpan.innerText = "HABLAR CON LU";
+                  btnElement.classList.remove('active-call');
+                  if (textSpan) textSpan.innerText = "HABLAR CON LUI";
               }, 3000);
 
           }, 300);
+      }
+
+      // Asignar el evento a ambos botones de la UI
+      document.getElementById('customVapiTrigger1').addEventListener('click', function() {
+          activateVapiCall(this);
+      });
+      document.getElementById('customVapiTrigger2').addEventListener('click', function() {
+          activateVapiCall(this);
       });
     </script>
 
