@@ -1,315 +1,124 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auron Estética Avanzada | Experiencia VIP en Bogotá</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-    
-    <script src="https://cdn.jsdelivr.net/npm/@vapi-ai/web@latest/dist/vapi.bundle.min.js"></script>
-
+    <title>Auron | Clínica Estética VIP Bogotá</title>
     <style>
-        /* =========================================
-           1. VARIABLES CSS (Arquitectura Escalable)
-           ========================================= */
-        :root {
-            --primary-teal: #709b9f; 
-            --accent-gold: #c7a36b; 
-            --accent-blue: #306f75; 
-            --danger-red: #c94c4c; /* Color para finalizar llamada */
-            --text-dark: #333333;
-            --text-light: #ffffff;
-            --bg-white: #fdfdfd;
-            --font-title: 'Playfair Display', serif;
-            --font-body: 'Poppins', sans-serif;
-            --transition-main: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        /* =========================================
-           2. RESET Y BASE
-           ========================================= */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
-            font-family: var(--font-body); 
-            color: var(--text-dark); 
-            background-color: var(--bg-white); 
-            overflow-x: hidden; 
-            scroll-behavior: smooth; 
-        }
-
-        /* =========================================
-           3. NAVEGACIÓN
-           ========================================= */
-        nav {
-            position: absolute;
-            top: 0; width: 100%;
-            padding: 30px 5%;
+        /* Estilos Globales - Limpieza y Sofisticación */
+        body {
+            font-family: 'Poppins', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff; /* Base blanca */
+            color: #1a1a1a;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 10;
-        }
-        .logo {
-            font-family: var(--font-title);
-            font-size: 1.8rem;
-            color: var(--text-light);
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-        .nav-links { list-style: none; display: flex; gap: 30px; }
-        .nav-links li a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            transition: var(--transition-main);
-        }
-        .nav-links li a:hover { color: var(--accent-gold); }
-
-        /* =========================================
-           4. SECCIÓN 1: HERO IMAGE (Top)
-           ========================================= */
-        .hero-section {
-            position: relative;
-            height: 100vh; 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
-            text-align: center;
-            /* Degradado más profundo para mejor contraste de lectura */
-            background: linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.3)), url('https://images.unsplash.com/photo-1596704017254-9b121068fb31?q=80&w=1974&auto=format&fit=crop') center/cover;
-        }
-        .hero-content {
-            z-index: 2;
-            max-width: 850px;
-            padding: 20px;
-            color: var(--text-light);
-        }
-        .hero-content h1 {
-            font-size: 3.5rem;
-            font-family: var(--font-title);
-            margin-bottom: 24px;
-            font-weight: 400;
-            letter-spacing: 1px;
-            color: var(--text-light);
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-        .hero-content p {
-            font-size: 1.15rem;
-            font-weight: 300;
-            margin-bottom: 45px;
-            line-height: 1.8;
-            color: rgba(255, 255, 255, 0.95);
+            align-items: center;
+            min-height: 100vh;
         }
 
-        /* =========================================
-           5. BOTÓN DE LLAMADA (Estado UI Dinámico)
-           ========================================= */
-        .call-button-container {
-            margin-top: 20px;
+        /* Contenedor Principal (UI Sofisticada) */
+        .premium-card {
+            background: #ffffff;
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-width: 500px;
+            border: 1px solid rgba(199, 163, 107, 0.2); /* Borde dorado muy sutil */
+            position: relative;
+            overflow: hidden;
         }
-        
-        .btn-call {
-            background-color: var(--accent-blue);
-            color: var(--text-light);
-            padding: 18px 45px;
-            border: none;
-            font-family: var(--font-body);
-            text-transform: uppercase;
-            font-size: 1.05rem;
-            font-weight: 500;
-            letter-spacing: 1.5px;
-            cursor: pointer;
-            transition: var(--transition-main);
-            border-radius: 50px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+
+        /* Efecto Glow sutil en el fondo */
+        .premium-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(199, 163, 107, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            z-index: 1;
+        }
+
+        /* Título - Tono VIP */
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+        }
+
+        h1 span {
+            color: #c7a36b; /* Dorado VIP */
+        }
+
+        /* Párrafo y Estado */
+        p {
+            color: #555555;
+            line-height: 1.8;
+            font-size: 1.1rem;
+            position: relative;
+            z-index: 2;
+            margin-bottom: 30px;
+        }
+
+        .status-vip {
             display: inline-flex;
             align-items: center;
-            gap: 12px;
-            min-width: 260px;
-            justify-content: center;
-        }
-        
-        .btn-call:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.35);
-            filter: brightness(1.1);
+            gap: 10px;
+            font-size: 0.95rem;
+            color: #c7a36b; /* Dorado */
+            position: relative;
+            z-index: 2;
+            font-weight: 500;
         }
 
-        .btn-call.is-active {
-            background-color: var(--danger-red);
-            animation: pulse 2s infinite;
+        .status-vip .dot-gold {
+            width: 10px;
+            height: 10px;
+            background: #c7a36b;
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(199, 163, 107, 0.5);
         }
 
-        .btn-call.is-connecting {
-            background-color: var(--accent-gold);
-            cursor: wait;
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 0 0 0 rgba(201, 76, 76, 0.7); }
-            70% { box-shadow: 0 0 0 15px rgba(201, 76, 76, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(201, 76, 76, 0); }
-        }
-
-        /* =========================================
-           6. SECCIONES INFERIORES
-           ========================================= */
-        .info-section, .works-section {
-            padding: 100px 20px;
-            text-align: center;
-        }
-        
-        .info-section {
-            background-color: var(--bg-white);
-        }
-        
-        .works-section {
-            background-color: var(--primary-teal);
-            color: var(--text-light);
-        }
-
-        h2.section-title {
-            font-family: var(--font-title);
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-            font-weight: 400;
-            letter-spacing: 1px;
-        }
-
-        .info-section h2.section-title { color: var(--text-dark); }
-        
-        .section-text {
-            max-width: 800px;
-            margin: 0 auto;
-            font-size: 1.05rem;
-            line-height: 1.9;
-            font-weight: 300;
-        }
-
-        .info-section .section-text { color: #555; }
-
-        /* Responsividad Móvil */
-        @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero-content h1 { font-size: 2.4rem; }
-            .hero-content p { font-size: 1rem; }
-            .btn-call { padding: 15px 35px; font-size: 0.95rem; min-width: 220px; }
-            h2.section-title { font-size: 2rem; }
+        /* Estilos específicos para el widget de Vapi */
+        .vapi-btn-custom {
+            --vapi-btn-background-color: #c7a36b; /* Color principal del botón (Dorado) */
+            --vapi-btn-text-color: #ffffff; /* Color del texto/icono */
+            --vapi-btn-hover-color: #b58d5a; /* Color de hover */
         }
     </style>
 </head>
 <body>
-
-    <nav>
-        <div class="logo">Auron Estética</div>
-        <ul class="nav-links">
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Tratamientos</a></li>
-            <li><a href="#">Instalaciones</a></li>
-            <li><a href="#">Contacto</a></li>
-        </ul>
-    </nav>
-
-    <header class="hero-section">
-        <div class="hero-content">
-            <h1>Descubre tu Mejor Versión VIP</h1>
-            <p>Forma parte de la experiencia VIP en estética avanzada. Deja que Lu, nuestra asistente virtual, gestione tu cita y responda a tus dudas ahora mismo.</p>
-            
-            <div class="call-button-container">
-                <button id="vapi-call-btn" class="btn-call" onclick="toggleVapiCall()">
-                    <span id="btn-icon" class="btn-call-icon">📞</span>
-                    <span id="btn-text">Hablar con Lu</span>
-                </button>
-            </div>
+    <div class="premium-card vapi-btn-custom">
+        <h1><span>Auron</span> Clínica Estética</h1>
+        <p>Bienvenido a la experiencia VIP de la belleza en Bogotá. Haz clic en el botón flotante para hablar con tu agente virtual experto.</p>
+        <div class="status-vip">
+            <div class="dot-gold"></div> Agente virtual Lu en línea
         </div>
-    </header>
-
-    <section class="info-section">
-        <h2 class="section-title">Atención de Primer Nivel</h2>
-        <p class="section-text">Bienvenido a Auron. Olvídate de la burocracia médica y las esperas telefónicas. Hemos diseñado una arquitectura de atención exclusiva donde la eficiencia de la inteligencia artificial se une a la precisión médica. Nuestro sistema de voz inteligente te entiende, gestiona tus procedimientos VIP y resuelve tus dudas al instante, las 24 horas del día.</p>
-    </section>
-
-    <section class="works-section">
-        <h2 class="section-title">Nuestros Tratamientos y Resultados</h2>
-        <p class="section-text">Implementamos soluciones robustas para clínicas que valoran el tiempo y la privacidad de sus clientes VIP. No utilizamos sistemas frágiles; integramos agentes de IA de alto nivel que funcionan bajo arquitecturas sólidas para garantizar la seguridad y la confidencialidad en cada interacción.</p>
-    </section>
+    </div>
 
     <script>
-      // Configuración de Vapi
-      const assistantId = "c3f7a846-f79a-49d0-ace3-a99e6d1ebe98"; 
-      const apiKeyPublic = "da74cce1-415a-48cf-bf99-f20520b48d22"; 
-      
-      // Instanciación del objeto global de Vapi (requiere el script cdn cargado en el head)
-      const vapi = new window.Vapi(apiKeyPublic);
-      
-      // Referencias al DOM
-      const callButton = document.getElementById('vapi-call-btn');
-      const btnText = document.getElementById('btn-text');
-      const btnIcon = document.getElementById('btn-icon');
-      
-      let isCallActive = false;
-      let isConnecting = false;
+      var vapiInstance = null;
+      // INSTRUCCIÓN: Inyecta tus datos reales aquí
+      const assistant = "TU_ASSISTANT_ID_AQUI"; 
+      const apiKey = "TU_PUBLIC_KEY_AQUI"; 
 
-      // ==========================================
-      // LISTENERS DE ESTADO DEL AGENTE (Crucial para UX)
-      // ==========================================
-      
-      vapi.on('call-start', () => {
-          isConnecting = false;
-          isCallActive = true;
-          
-          // Cambio visual a estado ACTIVO (Rojo / Colgar)
-          callButton.classList.remove('is-connecting');
-          callButton.classList.add('is-active');
-          btnIcon.innerText = '⏹️';
-          btnText.innerText = 'Finalizar Llamada';
-      });
-
-      vapi.on('call-end', () => {
-          resetButtonState();
-      });
-
-      vapi.on('error', (e) => {
-          console.error("Error en Vapi:", e);
-          alert("Hubo un inconveniente al conectar con Lu. Revisa tu conexión o intenta en unos minutos.");
-          resetButtonState();
-      });
-
-      // ==========================================
-      // FUNCIONES DE CONTROL
-      // ==========================================
-      
-      function toggleVapiCall() {
-          if (isConnecting) return; // Previene múltiples clics mientras conecta
-
-          if (isCallActive) {
-              // Si está activo, el botón funciona para colgar
-              vapi.stop();
-          } else {
-              // Iniciar llamada
-              isConnecting = true;
-              
-              // Cambio visual a estado CONECTANDO
-              callButton.classList.add('is-connecting');
-              btnIcon.innerText = '⏳';
-              btnText.innerText = 'Conectando con Lu...';
-              
-              vapi.start(assistantId);
-          }
-      }
-
-      function resetButtonState() {
-          isCallActive = false;
-          isConnecting = false;
-          
-          callButton.classList.remove('is-active', 'is-connecting');
-          btnIcon.innerText = '📞';
-          btnText.innerText = 'Hablar con Lu';
-      }
+      (function (d, t) {
+        var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        g.src = "https://cdn.jsdelivr.net/gh/VapiAI/html-script-tag@latest/dist/assets/index.js";
+        g.defer = true; g.async = true;
+        s.parentNode.insertBefore(g, s);
+        g.onload = function () {
+          vapiInstance = window.vapiSDK.run({ apiKey: apiKey, assistant: assistant });
+        };
+      })(document, "script");
     </script>
-
 </body>
 </html>
