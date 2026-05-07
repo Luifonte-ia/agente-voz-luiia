@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auron | Clínica Estética VIP</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         /* =========================================
            1. VARIABLES CSS (Arquitectura Escalable)
            ========================================= */
         :root {
             --primary-teal: #709b9f; 
-            --accent-gold: #c7a36b; 
+            --accent-gold: #d4af37; /* Tono dorado más premium y sutil */
             --text-dark: #333333;
             --text-light: #ffffff;
             --bg-white: #fdfdfd;
@@ -26,7 +26,7 @@
         body { font-family: var(--font-body); color: var(--text-dark); background-color: var(--bg-white); overflow-x: hidden; }
 
         /* =========================================
-           3. NAVEGACIÓN
+           3. NAVEGACIÓN Y LOGO VIP
            ========================================= */
         nav {
             position: absolute;
@@ -37,20 +37,39 @@
             align-items: center;
             z-index: 10;
         }
-        .logo {
-            font-family: var(--font-title);
-            font-size: 2rem;
-            color: var(--text-light);
-            letter-spacing: 2px;
-            font-weight: 600;
+        
+        /* Estructura de Logo de Lujo */
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
         }
+        .logo-main {
+            font-family: var(--font-body);
+            font-size: 2.2rem;
+            color: var(--text-light);
+            letter-spacing: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .logo-sub {
+            font-family: var(--font-body);
+            font-size: 0.65rem;
+            color: rgba(255, 255, 255, 0.7);
+            letter-spacing: 6px;
+            font-weight: 300;
+            text-transform: uppercase;
+            margin-top: 2px;
+            padding-left: 2px;
+        }
+
         .nav-links { list-style: none; display: flex; gap: 30px; }
         .nav-links li a {
             color: var(--text-light);
             text-decoration: none;
-            font-size: 0.85rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 2px;
             transition: color 0.3s ease;
         }
         .nav-links li a:hover { color: var(--accent-gold); }
@@ -60,124 +79,126 @@
            ========================================= */
         .hero-section {
             position: relative;
-            height: 100vh; /* Ocupa toda la pantalla para impacto VIP */
+            height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             text-align: center;
-            /* Imagen de piel perfecta / Estética Top */
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.2)), url('https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=2069&auto=format&fit=crop') center/cover no-repeat;
+            /* Overlay oscurecido para mayor contraste y legibilidad */
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1580618672591-eb180b1a973f?q=80&w=2069&auto=format&fit=crop') center/cover no-repeat;
         }
         .hero-content {
             z-index: 2;
-            max-width: 800px;
+            max-width: 850px;
             padding: 0 20px;
+            margin-top: 40px; /* Compensa visualmente el espacio del menú */
         }
         .hero-content h1 {
             color: var(--text-light);
-            font-size: 3.5rem;
+            font-size: 4rem; /* Ligeramente más grande */
             font-family: var(--font-title);
             margin-bottom: 20px;
             font-weight: 400;
             letter-spacing: 1px;
         }
         .hero-content p {
-            color: rgba(255, 255, 255, 0.95);
-            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.05rem;
             font-weight: 300;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
             line-height: 1.8;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .btn-primary {
-            background-color: var(--primary-teal);
+
+        /* =========================================
+           5. BOTÓN VIP: GLASSMORPHISM Y VAPI
+           ========================================= */
+        .btn-glass {
+            background: rgba(255, 255, 255, 0.05); /* Fondo casi transparente */
+            backdrop-filter: blur(8px); /* Efecto cristal */
+            -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(212, 175, 55, 0.5); /* Borde dorado translúcido */
             color: var(--text-light);
-            padding: 16px 40px;
-            border: none;
-            border-radius: 30px;
+            padding: 14px 35px;
+            border-radius: 40px; /* Forma de píldora */
             font-family: var(--font-body);
             text-transform: uppercase;
-            font-size: 0.95rem;
-            letter-spacing: 2px;
+            font-size: 0.85rem;
+            letter-spacing: 3px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.4s ease;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
         }
-        .btn-primary:hover { 
-            background-color: #5a8084; 
+        
+        .btn-glass:hover { 
+            background: rgba(255, 255, 255, 0.15); 
+            border-color: var(--accent-gold);
             transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(212, 175, 55, 0.2); /* Resplandor dorado suave */
+        }
+
+        /* Ícono de ondas SVG */
+        .soundwave-icon {
+            width: 18px;
+            height: 18px;
+            stroke: var(--accent-gold);
+        }
+
+        /* Animación de pulso para indicar IA en vivo */
+        @keyframes subtlePulse {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+        .btn-glass.active-call {
+            animation: subtlePulse 2s infinite;
+            border-color: var(--accent-gold);
+            background: rgba(212, 175, 55, 0.1);
         }
 
         /* =========================================
-           5. SECCIÓN 2: INFO BLANCA (Middle)
+           6. SECCIONES INFERIORES
            ========================================= */
-        .info-section {
-            padding: 100px 20px;
-            text-align: center;
-            background-color: var(--bg-white);
-        }
-        .info-section h2 {
-            font-family: var(--font-title);
-            font-size: 2.2rem;
-            color: var(--text-dark);
-            margin-bottom: 25px;
-            font-weight: 400;
-        }
-        .info-section p {
-            max-width: 750px;
-            margin: 0 auto;
-            color: #555;
-            font-size: 1rem;
-            line-height: 1.9;
-            font-weight: 300;
-        }
+        .info-section { padding: 100px 20px; text-align: center; background-color: var(--bg-white); }
+        .info-section h2 { font-family: var(--font-title); font-size: 2.2rem; color: var(--text-dark); margin-bottom: 25px; font-weight: 400; }
+        .info-section p { max-width: 750px; margin: 0 auto; color: #555; font-size: 1rem; line-height: 1.9; font-weight: 300; }
+
+        .works-section { padding: 100px 20px; text-align: center; background-color: var(--primary-teal); color: var(--text-light); }
+        .works-section h2 { font-family: var(--font-title); font-size: 2.2rem; margin-bottom: 25px; font-weight: 400; }
+        .works-section p { max-width: 700px; margin: 0 auto; font-size: 1rem; line-height: 1.9; font-weight: 300; }
 
         /* =========================================
-           6. SECCIÓN 3: WORKS/TEAL (Bottom)
-           ========================================= */
-        .works-section {
-            padding: 100px 20px;
-            text-align: center;
-            background-color: var(--primary-teal);
-            color: var(--text-light);
-        }
-        .works-section h2 {
-            font-family: var(--font-title);
-            font-size: 2.2rem;
-            margin-bottom: 25px;
-            font-weight: 400;
-        }
-        .works-section p {
-            max-width: 700px;
-            margin: 0 auto;
-            font-size: 1rem;
-            line-height: 1.9;
-            font-weight: 300;
-        }
-
-        /* =========================================
-           7. INTEGRACIÓN AGENTE VAPI (Funcional)
+           7. INTEGRACIÓN AGENTE VAPI
            ========================================= */
         vapi-chat-widget, #vapi-chat-widget {
             z-index: 99999 !important;
             position: fixed !important;
+            /* Opcional: Ocultar el botón flotante por defecto si solo quieres usar el central */
+            /* display: none !important; */ 
         }
 
         /* Responsividad Móvil */
         @media (max-width: 768px) {
             .nav-links { display: none; }
-            .hero-content h1 { font-size: 2.5rem; }
+            .hero-content h1 { font-size: 2.8rem; }
             .hero-content p { font-size: 0.95rem; }
+            .logo-main { font-size: 1.8rem; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <div class="logo">Auron Estética</div>
+        <div class="logo-container">
+            <span class="logo-main">Auron</span>
+            <span class="logo-sub">Estética Avanzada</span>
+        </div>
         <ul class="nav-links">
             <li><a href="#">Inicio</a></li>
             <li><a href="#">Servicios</a></li>
@@ -190,8 +211,12 @@
         <div class="hero-content">
             <h1>Descubre tu Mejor Versión</h1>
             <p>Forma parte de la experiencia VIP en estética avanzada. No esperes más; deja que Lu, nuestra asistente virtual de inteligencia superior, gestione tu cita y responda a tus dudas ahora mismo.</p>
-            <button class="btn-primary" onclick="alert('Para hablar con Lu, por favor haz clic en el ícono de llamada flotante en la esquina inferior derecha de tu pantalla.')">
-                📞 HABLAR CON LU
+            
+            <button class="btn-glass" id="customVapiTrigger">
+                <svg class="soundwave-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 4V20M8 8V16M16 8V16M4 11V13M20 11V13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span>HABLAR CON LU</span>
             </button>
         </div>
     </header>
@@ -224,12 +249,46 @@
               config: {
                   position: "bottom-right",
                   button: {
-                      color: "#709b9f" /* Color Teal a juego con la marca */
+                      color: "#709b9f"
                   }
               }
           });
         };
       })(document, "script");
+
+      // Lógica para que el Botón VIP Central active Vapi
+      document.getElementById('customVapiTrigger').addEventListener('click', function() {
+          const btn = this;
+          const textSpan = btn.querySelector('span');
+          
+          // Cambiar estado visual temporalmente para feedback UX
+          btn.classList.add('active-call');
+          textSpan.innerText = "CONECTANDO...";
+
+          // Intentar hacer clic en el widget oculto de Vapi incrustado en el Shadow DOM
+          setTimeout(() => {
+              try {
+                  const vapiWidget = document.querySelector('vapi-chat-widget');
+                  if(vapiWidget && vapiWidget.shadowRoot) {
+                      const vapiBtn = vapiWidget.shadowRoot.querySelector('button');
+                      if(vapiBtn) {
+                          vapiBtn.click();
+                      }
+                  } else {
+                      alert("El agente de voz se está inicializando, por favor intenta en un segundo.");
+                  }
+              } catch (e) {
+                  console.error("Error al conectar con Vapi:", e);
+              }
+              
+              // Restaurar el botón después de la interacción
+              setTimeout(() => {
+                  btn.classList.remove('active-call');
+                  textSpan.innerText = "HABLAR CON LU";
+              }, 3000);
+
+          }, 300);
+      });
     </script>
 
 </body>
